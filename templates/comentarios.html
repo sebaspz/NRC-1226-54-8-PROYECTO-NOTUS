@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú lateral responsive - MagtimusPro</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+    
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fas fa-angle-double-left"></i>
+            <h4>NOTUS</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="/index/" >
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+            <a href="/index/usuario/">
+                <div class="option">
+                    <i class="far fa-user" title="Usuario"></i>
+                    <h4>Usuarios</h4>
+                </div>
+            </a>
+            
+            <a href="/index/cursos/" > 
+                <div class="option">
+                    <i class="fas fa-book" title="Cursos"></i>
+                    <h4>Cursos</h4>
+                </div>
+            </a>
+
+            <a href="/index/materias/">
+                <div class="option">
+                    <i class="fas fa-book-open" title="Materias"></i>
+                    <h4>Materias</h4>
+                </div>
+            </a>
+
+            <a href="/index/actividades/">
+                <div class="option">
+                    <i class="far fa-file" title="Actividades"></i>
+                    <h4>Actividades</h4>
+                </div>
+            </a>
+
+            <a href="/index/comentarios" class="selected">
+                <div class="option">
+                    <i class="fas fa-comment-alt" title="Comentarios"></i>
+                    <h4>Comentarios</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <main>
+        <h1>Comentarios</h1><br>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sapiente cumque dicta animi explicabo sequi. Ex amet et, dolor eligendi commodi consectetur quo voluptatibus, cum nemo porro veniam at blanditiis?</p> <br>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident adipisci beatae impedit quia, deleniti quasi sequi iusto exercitationem nihil nulla, laboriosam dolore corrupti fuga officiis? Odit a mollitia id magnam amet delectus quia blanditiis reprehenderit explicabo eveniet! Rem voluptatum explicabo ipsum quae, dolorum, laudantium doloribus a, illum saepe sapiente accusantium dicta reiciendis? Amet iure porro voluptatum error fugit odit voluptas?</p>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+</body>
+</html>

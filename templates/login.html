@@ -1,0 +1,49 @@
+
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iniciar Sesión</title>
+    <script src="{{ url_for('static', filename='js/funciones.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mioCSS.css') }}" />
+  </head>
+
+  <body>
+    <img src="{{ url_for('static', filename='img/logoNotus.png') }}" />
+    <h1>Iniciar Sesión</h1>
+    <form name="login" method="POST" action="" >
+      
+      <p>Usuario: 
+        <div class="input_Container">
+          <input type="text" name="username" id="username" />
+          <img src="{{ url_for('static', filename='img/user.png') }}" class="userIcon"/>
+        </div>
+        <span class="error" id="errorUsername"></span>
+      </p>
+
+      <p>Contraseña:
+        <div class="input_Container">
+          <input type="password" name="userPassword" />
+          <img src="{{ url_for('static', filename='img/key.png') }}" class="userIcon"/>
+        </div>
+        <span class="error" id="errorPassword"></span>
+        <img src="{{ url_for('static', filename='img/ver.png') }}" width=100 height=50 onmouseover="verClave();" onmouseout="ocultarClave()"/>
+      </p>
+
+      <button type="submit" name="Boton" value="login" >
+        Iniciar Sesión
+      </button>
+
+      <button type="submit" name="Boton" value="Cancelar" >
+        Cancelar
+      </button>
+      
+      <button type="submit" name="Boton" value="resetPassword" >
+        Olvide mi contraseña
+      </button>
+
+    </form>
+
+  </body>
+
+</html>

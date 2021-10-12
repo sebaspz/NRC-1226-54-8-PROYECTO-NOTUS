@@ -1,0 +1,23 @@
+<html>
+   <head>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mioCSS.css') }}" />
+	   <title>Bienvenida </title>
+	   <meta charset="UTF-8"/>
+   </head>
+   <body>
+      
+      <img src="{{ url_for('static', filename='img/logoNotus.png') }}" />
+      <h1>Bienvenido a NOTUS</h1>
+   
+      <form name="home" method="POST">
+         
+         <!--<p><input type="submit" value="Enviar"></p>
+		   <button type="submit" value="Entrar" id="botonEntrar" onclick="location.href='/login.html'">Login</button>-->
+
+         <button type="submit" name="Boton" value="login" > Iniciar Sesión </button>
+         <button type="submit" name="Boton" value="signUp" > Registrame </button>
+
+      </form>
+     
+   </body>
+</html>
