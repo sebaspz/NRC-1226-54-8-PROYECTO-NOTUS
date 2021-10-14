@@ -8,15 +8,32 @@
       
       <img src="{{ url_for('static', filename='img/logoNotus.png') }}" />
       <h1>Bienvenido a NOTUS</h1>
-   
-      <form name="home" method="POST">
-         
-         <!--<p><input type="submit" value="Enviar"></p>
-		   <button type="submit" value="Entrar" id="botonEntrar" onclick="location.href='/login.html'">Login</button>-->
+<!--
+      <nav>
+         <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Quiénes somos</a></li>
+            <li><a href="#">Servicios</a>
+               <ul>
+                  <li><a href="">Servicio 1</a></li>
+                  <li><a href="">Servicio 2</a></li>
+                  <li><a href="">Servicio 3</a></li>
+                  <li><a href="">Servicio 4</a></li>
+               </ul> 
+            </li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+         </ul>
+      </nav>
+-->
 
-         <button type="submit" name="Boton" value="login" > Iniciar Sesión </button>
-         <button type="submit" name="Boton" value="signUp" > Registrame </button>
-
+      <form name="home" >
+         <a href="{{ url_for('main.login') }}">
+            <button type="button" name="Boton" value="login" href="{{ url_for('main.login') }}"> Iniciar Sesión </button>
+         </a>
+         <a href="/signUp/">
+            <button type="button" name="Boton" value="login" > Registrarse </button>
+         </a>
       </form>
      
    </body>

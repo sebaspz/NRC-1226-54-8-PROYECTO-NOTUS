@@ -14,15 +14,15 @@ def site():         # desde aqui puede ser redireccionado donde se desee y puede
 @main.route('/home/', methods=['GET', 'POST'])
 def home():
 
-    if(request.method == 'POST'):
+    '''if(request.method == 'POST'):
 
         Accion = request.form['Boton']
 
         if(Accion == 'login'):      # Boton login pulsado -> redirecciona al formulario de login
-            return redirect(url_for('main.' + Accion))
+            return redirect(url_for('main.login'))
 
         if(Accion == 'signUp'):      # Boton login pulsado -> redirecciona al formulario de login
-            return redirect(url_for('main.' + Accion))
+            return redirect(url_for('main.signUp'))'''
 
     return render_template('home.html')
 
@@ -42,11 +42,11 @@ def login():
                 # return redirect(url_for('main.listadoMensajes')) # Aquise programa lo que debe hacer cuando el login sea exitoso
                 return redirect(url_for('main.index'))
         
-        if(Accion == 'Cancelar'):
+        '''if(Accion == 'Cancelar'):
             return redirect(url_for('main.home'))
 
         if(Accion == 'resetPassword'):
-            return redirect(url_for('main.resetPassword'))
+            return redirect(url_for('main.resetPassword'))'''
 
     return render_template('login.html')
 
@@ -115,7 +115,40 @@ def index():
 
 @main.route('/index/usuario/', methods=['GET', 'POST'])
 def usuario():
+
+    if(request.method == 'POST'):
+        
+        Accion = request.form['Boton']
+
+        if(Accion == 'crearUsuario'):
+            return redirect(url_for('main.crearUsuario'))
+
+        if(Accion == 'buscarUsuario'):
+            return redirect(url_for('main.home'))
+
+        if(Accion == 'editarUsuario'):
+            return redirect(url_for('main.home'))
+
+        if(Accion == 'eliminarUsuario'):
+            return redirect(url_for('main.home'))
+        
     return render_template('usuario.html')
+
+@main.route('/index/crearUsuario/', methods=['GET', 'POST'])
+def crearUsuario():
+    return render_template('usuario_Crear.html')
+
+@main.route('/index/buscarUsuario/', methods=['GET', 'POST'])
+def buscarUsuario():
+    return render_template('usuario_Buscar.html')
+
+@main.route('/index/editarUsuario/', methods=['GET', 'POST'])
+def editarUsuario():
+    return render_template('usuario_Editar.html')
+
+@main.route('/index/eliminarUsuario/', methods=['GET', 'POST'])
+def eliminarUsuario():
+    return render_template('usuario_Eliminar.html')
 
 @main.route('/index/cursos/', methods=['GET', 'POST'])
 def cursos():

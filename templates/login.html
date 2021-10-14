@@ -11,7 +11,8 @@
   <body>
     <img src="{{ url_for('static', filename='img/logoNotus.png') }}" />
     <h1>Iniciar Sesión</h1>
-    <form name="login" method="POST" action="" >
+
+    <form name="login" method="POST" >
       
       <p>Usuario: 
         <div class="input_Container">
@@ -24,23 +25,23 @@
       <p>Contraseña:
         <div class="input_Container">
           <input type="password" name="userPassword" />
-          <img src="{{ url_for('static', filename='img/key.png') }}" class="userIcon"/>
+          <img src="{{ url_for('static', filename='img/key.png')}}" class="userIcon"/>
         </div>
         <span class="error" id="errorPassword"></span>
-        <img src="{{ url_for('static', filename='img/ver.png') }}" width=100 height=50 onmouseover="verClave();" onmouseout="ocultarClave()"/>
+        <img src="{{ url_for('static', filename='img/ver.png')}}" width=100 height=50 onmouseover="verClave();" onmouseout="ocultarClave()"/>
       </p>
-
-      <button type="submit" name="Boton" value="login" >
-        Iniciar Sesión
-      </button>
-
-      <button type="submit" name="Boton" value="Cancelar" >
-        Cancelar
-      </button>
       
-      <button type="submit" name="Boton" value="resetPassword" >
-        Olvide mi contraseña
-      </button>
+      <button type="submit" name="Boton" value="login" method="POST">Iniciar Sesión</button>
+
+      <a href="{{ url_for('main.home')}}">
+        <button type="button" name="Boton" value="Cancelar"> Cancelar </button>
+      </a>
+
+      <h4></h4>
+
+      <a href="{{ url_for('main.resetPassword')}}">
+        <button type="button" name="Boton" value="resetPassword"> Olvide mi contraseña </button>
+      </a>
 
     </form>
 

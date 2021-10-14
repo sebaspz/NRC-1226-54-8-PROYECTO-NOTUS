@@ -161,3 +161,27 @@ a.selected{
         left: -80px;
     }
 }
+
+
+
+article{
+    background-color: blanchedalmond;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 50px 50px 50px 50px 50px;
+    grid-gap: 4px;
+
+    text-align: vertical;
+}
+
+section {
+    font-size: 1.3em;
+}
+
+section:nth-child(odd){
+    background-color:rgba(63, 63, 62, 0.692);
+}
+
+section:nth-child(even){
+    background-color: grey;
+}

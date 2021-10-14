@@ -1,16 +1,53 @@
+
+*{font-family: "calibri";}  
+nav a{
+      text-decoration:none;
+      color:inherit;
+      font-size:14px;
+      }
+            
+nav li{
+      display:inline-block;
+      width:150px;
+      height:30px;
+      padding:5px 10px;
+      background-color:rgb(105, 11, 168);
+      border:1px solid rgb(191, 101, 250);
+      text-align:center;
+      color:#fff;
+      position:relative;
+}
+            
+nav li:hover{
+      background-color:#fff;
+      color:#000;
+      }
+            
+nav li>ul{
+      display:none;
+      }
+
+nav li:hover>ul{
+      display:block;
+      position:absolute;
+      top:30px;
+      left:0px;
+}
+
+
+
 h1
 {
     color: #ffffff;
     background-color: rgb(105, 11, 168);
     opacity: 0.6;
     text-align: center;
-    font-family: "calibri";
     font-size: 200%
 }
 
 form{
 
-    width: 350px;
+    width: 195px;
     padding: 16px;
     border-radius: 10px;
     margin: auto;
@@ -19,11 +56,11 @@ form{
 }
 
 form input{
-   padding: 3px 10px;
+    padding: 3px 10px;
     height:20px;
     border-radius: 3px;
     margin:0;
-    display: inline-block;
+    display: inline-block; 
     text-align: left;
     direction: ltr;
 /*
@@ -78,5 +115,6 @@ button
     margin:0 20px;
   
     direction: rtl;
-    width: 200px;
+    width: 150px;
 }
+
