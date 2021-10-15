@@ -115,27 +115,18 @@ def index():
 
 @main.route('/index/usuario/', methods=['GET', 'POST'])
 def usuario():
-
-    if(request.method == 'POST'):
-        
-        Accion = request.form['Boton']
-
-        if(Accion == 'crearUsuario'):
-            return redirect(url_for('main.crearUsuario'))
-
-        if(Accion == 'buscarUsuario'):
-            return redirect(url_for('main.home'))
-
-        if(Accion == 'editarUsuario'):
-            return redirect(url_for('main.home'))
-
-        if(Accion == 'eliminarUsuario'):
-            return redirect(url_for('main.home'))
         
     return render_template('usuario.html')
 
 @main.route('/index/crearUsuario/', methods=['GET', 'POST'])
 def crearUsuario():
+    if(request.method == 'POST'):
+        
+        Accion = request.form['Boton']
+
+        if(Accion == 'Create'):
+            return redirect(url_for('main.usuario'))
+
     return render_template('usuario_Crear.html')
 
 @main.route('/index/buscarUsuario/', methods=['GET', 'POST'])
@@ -157,6 +148,22 @@ def cursos():
 @main.route('/index/materias/', methods=['GET', 'POST'])
 def materias():
     return render_template('materias.html')
+
+@main.route('/index/crear_materias/', methods=['GET', 'POST'])
+def crear_materias():
+    return render_template('crear_materias.html')
+
+@main.route('/index/editar_materias/', methods=['GET', 'POST'])
+def editar_materias():
+    return render_template('editar_materias.html')
+
+@main.route('/index/eliminar_materias/', methods=['GET', 'POST'])
+def eliminar_materias():
+    return render_template('eliminar_materias.html')
+
+@main.route('/index/buscar_materias/', methods=['GET', 'POST'])
+def buscar_materias():
+    return render_template('buscar_materias.html')
 
 @main.route('/index/actividades/', methods=['GET', 'POST'])
 def actividades():

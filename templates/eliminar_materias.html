@@ -74,14 +74,39 @@
     </div>
 
     <main>
-        <h1>Materias</h1><br>
-        
-        <!-- <p><input type="submit" value="Enviar"></p>-->
-         <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.crear_materias')}}">crear_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.editar_materias')}}">editar_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.eliminar_materias')}}">eliminar_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.buscar_materias')}}">buscar_materias</a> </button>
-        <!-- <link class="button" h>Hola</link>  -->
+        <h1>eliminar_materias</h1><br>
+    
+    <form name="eliminar_materias" method="POST" action="" >
+      
+      <p>nombre: 
+       <button type="submit" name="Boton" value="buscar" >
+        buscar
+      </button>
+        <div class="input_Container">
+        <input type="text" name="nombre"id="nombre"/>
+        </div>
+      </p>
+
+      <p>parametro de eliminacion:
+        <div class="input_Container">
+          <input type="text" name="parametro de eliminacion" id="parametro de eliminacion"/>
+          <input type="checkbox" name="condiciones" aria-valuenow="off" value="eliminar"/>
+          <input type="submit" id="send" value="esta seguro que desea eliminar la materia?">
+        </div>
+      </p>
+
+      
+      <button type="submit" name="Boton" value="cancelar" >
+        cancelar
+      </button>
+
+      <button type="submit" name="Boton" value="confirmar" >
+        confirmar
+      </button>
+
+    </form>
+
+  </body>
     </main>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

@@ -75,52 +75,74 @@
 
     <main>
         <h1>Crear Usuario</h1><br>
-        <p>Ingrese la informacion solicitada</p> <br>
+        <p>Diligencie el siguiente formulario</p> <br>
         <form name="formularioRegistro" onsubmit="return validar();" method="POST" action="{{url_for('main.signUp')}}">
-         
-            <p>Nombre
-                <div class="input_Container">
-                    <input type="text" name="nombre" /> 
+            <fieldset> 
+
+                <div class="form-group">
+                    <label for="exampleInput">Nombres</label>
+                    <input type="example" class="form-control" id="exampleInput" placeholder="Nombres">
                 </div>
-            </p>
-   
-            <p>Usuario:
-               <div class="input_Container">
-                  <input type="text" name="username" id="username" />
-               </div>
-               <span class="error" id="errorUsername"></span>
-            </p>
-   
-            <p>Sexo: 
-               <input type="radio" name="sexo" value="h" /> hombre
-               <input type="radio" name="sexo" value="m" /> mujer
-            </p>
-         
-            <p>Correo: 
-               <div class="input_Container">
-                  <input type="text" name="correo"  />
-               </div>
-               <span class="error" id="errorMail"></span>
-            </p>
-         
-            <p>Contraseña:
-               <div class="input_Container">
-                  <input type="password" name="userPassword" />
-               </div>
-               <span class="error" id="errorPassword"></span>
-            </p>
-            
-            <p>
-               <input type="checkbox" name="condiciones" aria-valuenow="off" value="Acepto"/> Declaro haber leido y
-               acepto las condiciones generales del programa y la normativa sobre
-               protección de datos
-            </p>
-            
-            
-            
-            <button type="submit" name="Boton" value="newRegister" id="botonEnviar">Enviar</button>
-            <button type="submit" name="Boton" value="Cancelar" id="botonCancelar">Cancelar</button>
-            
+
+                <div class="form-group">
+                    <label for="exampleInput">Apellidos</label>
+                    <input type="example" class="form-control" id="exampleInput" placeholder="Apellidos">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInput">Tipo de documeto</label>
+                    <select name="select">
+                        <option value="CC" selected>CC</option>
+                        <option value="TI">TI</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                        <option value="CE">CE</option>
+                        <option value="Doc Permanencia">Doc Permanencia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInput">Numero de documento</label>
+                    <input type="example" class="form-control" id="exampleInput" placeholder="Numero de documento">
+                </div>
+
+                <div class="input_Container">
+                    <label for="exampleInput">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">
+                </div>
+
+                <p>Genero/sexo: 
+                    <input type="radio" name="sexo" value="h" /> hombre
+                    <input type="radio" name="sexo" value="m" /> mujer
+                </p>
+
+                <div class="form-group">
+                    <label for="exampleInput">Correo electronico</label>
+                    <input type="password" class="form-control" id="exampleInput" placeholder="notus@notus.com">
+                    <span class="error" id="errorMail"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInput">Usuario</label>
+                    <input type="password" class="form-control" id="exampleInput" placeholder="nombre de usuario">
+                    <span class="error" id="errorMail"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="userPassword" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <span class="error" id="errorPassword"></span>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1"name="condiciones" aria-valuenow="off" value="Acepto">
+                    <label class="form-check-label" for="exampleCheck1">Declaro haber leido y
+                        acepto las condiciones generales del programa y la normativa sobre
+                        protección de datos</label>
+                </div>
+                
+            </fieldset>  
+            <button type="submit" name="Boton" value="Create" id="botonEnviar"> Crear </button>
+            <button type="submit" name="Boton" value="Cancelar" id="botonCancelar"> Cancelar <a href="/index/usuario/"></a></button>
          </form>
     </main>
 

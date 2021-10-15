@@ -74,14 +74,41 @@
     </div>
 
     <main>
-        <h1>Materias</h1><br>
+        <h1>editar_materias</h1><br>
         
-        <!-- <p><input type="submit" value="Enviar"></p>-->
-         <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.crear_materias')}}">crear_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.editar_materias')}}">editar_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.eliminar_materias')}}">eliminar_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.buscar_materias')}}">buscar_materias</a> </button>
-        <!-- <link class="button" h>Hola</link>  -->
+    <form name="crear_materias" method="POST" action="" >
+      
+      <p>nombre: 
+        <div class="input_Container">
+          <input type="text" name="nombre"id="nombre"/>
+        </div>
+      </p>
+
+      <p>editar_datos:
+        <div class="input_Container">
+          <input type="text" name="editar_datos" id="editar_datos"/>
+          <input type="checkbox" name="editar_datos" aria-valuenow="off" value="editar_datos"/>
+          <input type="submit" id="send" value="esta seguro de editar_datos?">
+        </div>
+      </p>
+
+      <p> fecha de modificacion:
+        <div class="input_Container">
+         <input type="date" name="fecha" id="fecha">
+        </div>
+      </p>
+
+       <button type="submit" name="Boton" value="Cancelar" >
+        Cancelar
+      </button>
+
+      <button type="submit" name="Boton" value="actualizar" >
+        actualizar
+      </button>
+     
+    </form>
+
+  </body>
     </main>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

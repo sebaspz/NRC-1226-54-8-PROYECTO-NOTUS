@@ -74,14 +74,28 @@
     </div>
 
     <main>
-        <h1>Materias</h1><br>
+        <h1>buscar_materias</h1><br>
         
-        <!-- <p><input type="submit" value="Enviar"></p>-->
-         <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.crear_materias')}}">crear_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.editar_materias')}}">editar_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.eliminar_materias')}}">eliminar_materias</a> </button>
-          <button type="submit" name="Boton" value="newRegister" id="botonEnviar"> <a href="{{url_for('main.buscar_materias')}}">buscar_materias</a> </button>
-        <!-- <link class="button" h>Hola</link>  -->
+    <form name="buscar_materias" method="POST" action="" >
+      
+      <p>parametro de busqueda: 
+        <div class="input_Container">
+          <input type="search" name="busqueda" id="busqueda" form="parametro de busqueda">
+        </div>
+      </p>
+
+      <button type="submit" name="Boton" value="Cancelar" >
+        Cancelar
+      </button>
+
+      <button type="submit" name="Boton" value="buscar" >
+        buscar
+      </button>
+
+
+    </form>
+
+  </body>
     </main>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
