@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV 'C:\Users\sebas\OneDrive\MISION_TIC_2022\CICLO 3 JS\PROYECTO GRUPO 8\PROYECTO NOTUS'
+set -gx VIRTUAL_ENV 'C:\Users\sebas\OneDrive\MISION_TIC_2022\CICLO 3 JS\PROYECTO GRUPO 8\mintic2022-ciclo3-grupo8-PROYECTO-NOTUS'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3

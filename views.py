@@ -144,10 +144,6 @@ def eliminarUsuario():
 def cursos():
     return render_template('cursos.html')
 
-@main.route('/index/cursos/', methods=['GET', 'POST'])
-def cursos():
-    return render_template('cursos.html')
-
 @main.route('/index/cursos/crearCurso/', methods=['GET', 'POST'])
 def crearCurso():
     return render_template('curso_crear.html')

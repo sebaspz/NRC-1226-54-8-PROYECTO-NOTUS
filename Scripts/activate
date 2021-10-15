@@ -44,7 +44,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='C:\Users\sebas\OneDrive\MISION_TIC_2022\CICLO 3 JS\PROYECTO GRUPO 8\PROYECTO NOTUS'
+VIRTUAL_ENV='C:\Users\sebas\OneDrive\MISION_TIC_2022\CICLO 3 JS\PROYECTO GRUPO 8\mintic2022-ciclo3-grupo8-PROYECTO-NOTUS'
 if ([ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ]) && $(command -v cygpath &> /dev/null) ; then
     VIRTUAL_ENV=$(cygpath -u "$VIRTUAL_ENV")
 fi
