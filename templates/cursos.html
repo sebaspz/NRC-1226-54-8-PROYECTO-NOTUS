@@ -75,10 +75,14 @@
 
     <main>
         <h1>Cursos</h1><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sapiente cumque dicta animi explicabo sequi. Ex amet et, dolor eligendi commodi consectetur quo voluptatibus, cum nemo porro veniam at blanditiis?</p> <br>
-
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident adipisci beatae impedit quia, deleniti quasi sequi iusto exercitationem nihil nulla, laboriosam dolore corrupti fuga officiis? Odit a mollitia id magnam amet delectus quia blanditiis reprehenderit explicabo eveniet! Rem voluptatum explicabo ipsum quae, dolorum, laudantium doloribus a, illum saepe sapiente accusantium dicta reiciendis? Amet iure porro voluptatum error fugit odit voluptas?</p>
-    
+        <p>Bienvenido a la sección de gestión de cursos, a continuación podrá elegir la acción que desea realizar:</p><br>
+        <button type="button" name="Boton" value="buscarCurso" id="botonEnviar"> <a href="{{url_for('main.buscarCurso')}}">Buscar Curso</a> </button>
+        <button type="button" name="Boton" value="calificarCurso" id="botonEnviar"> <a href="{{ url_for('main.calificarCurso') }}"> Calificar curso </a> </button>
+        <button type="button" name="Boton" value="consultarCalificaciones" id="botonEnviar"> <a href="{{ url_for('main.consultarCalificaciones') }}"> Consultar calificaciones </a> </button>
+        <button type="button" name="Boton" value="consultarCurso" id="botonEnviar"> <a href="{{ url_for('main.consultarCurso') }}"> Consultar curso </a> </button>
+        <button type="button" name="Boton" value="crearCurso" id="botonEnviar"> <a href="{{ url_for('main.crearCurso') }}"> Crear curso </a> </button>
+        <button type="button" name="Boton" value="editarCurso" id="botonEnviar"> <a href="{{ url_for('main.editarCurso') }}"> Editar curso </a> </button>
+        <button type="button" name="Boton" value="eliminarCurso" id="botonEnviar"> <a href="{{ url_for('main.eliminarCurso') }}"> Eliminar curso </a> </button>
     </main>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
