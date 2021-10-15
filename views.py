@@ -91,7 +91,7 @@ def resetPassword():
     if(request.method == 'POST'):
         return redirect(url_for('main.resetPasswordOK'))
 
-    return render_template('resetPassword.html')
+    return render_template('password_reset.html')
 
 @main.route('/resetPasswordOK/', methods=['GET', 'POST'])
 def resetPasswordOK():
@@ -99,7 +99,7 @@ def resetPasswordOK():
     if(request.method == 'POST'):
             return redirect(url_for('main.home'))
 
-    return render_template('resetPasswordOK.html')
+    return render_template('password_reset_OK.html')
 
 @main.route('/listado_Mensajes/')
 def listadoMensajes():
@@ -115,7 +115,6 @@ def index():
 
 @main.route('/index/usuario/', methods=['GET', 'POST'])
 def usuario():
-        
     return render_template('usuario.html')
 
 @main.route('/index/crearUsuario/', methods=['GET', 'POST'])
@@ -127,23 +126,55 @@ def crearUsuario():
         if(Accion == 'Create'):
             return redirect(url_for('main.usuario'))
 
-    return render_template('usuario_Crear.html')
+    return render_template('usuario_crear.html')
 
 @main.route('/index/buscarUsuario/', methods=['GET', 'POST'])
 def buscarUsuario():
-    return render_template('usuario_Buscar.html')
+    return render_template('usuario_buscar.html')
 
 @main.route('/index/editarUsuario/', methods=['GET', 'POST'])
 def editarUsuario():
-    return render_template('usuario_Editar.html')
+    return render_template('usuario_editar.html')
 
 @main.route('/index/eliminarUsuario/', methods=['GET', 'POST'])
 def eliminarUsuario():
-    return render_template('usuario_Eliminar.html')
+    return render_template('usuario_eliminar.html')
 
 @main.route('/index/cursos/', methods=['GET', 'POST'])
 def cursos():
     return render_template('cursos.html')
+
+@main.route('/index/cursos/', methods=['GET', 'POST'])
+def cursos():
+    return render_template('cursos.html')
+
+@main.route('/index/cursos/crearCurso/', methods=['GET', 'POST'])
+def crearCurso():
+    return render_template('curso_crear.html')
+
+@main.route('/index/cursos/buscarCurso/', methods=['GET', 'POST'])
+def buscarCurso():
+    return render_template('curso_buscar.html')
+
+@main.route('/index/cursos/consultarCurso/', methods=['GET', 'POST'])
+def consultarCurso():
+    return render_template('curso_consultar.html')
+
+@main.route('/index/cursos/editarCurso/', methods=['GET', 'POST'])
+def editarCurso():
+    return render_template('curso_editar.html')
+
+@main.route('/index/cursos/eliminarCurso/', methods=['GET', 'POST'])
+def eliminarCurso():
+    return render_template('curso_eliminar.html')
+
+@main.route('/index/cursos/calificarCurso/', methods=['GET', 'POST'])
+def calificarCurso():
+    return render_template('curso_calificar.html')
+
+@main.route('/index/cursos/consultarCalificaciones/', methods=['GET', 'POST'])
+def consultarCalificaciones():
+    return render_template('calificaciones_consultar.html')
 
 @main.route('/index/materias/', methods=['GET', 'POST'])
 def materias():
@@ -151,19 +182,19 @@ def materias():
 
 @main.route('/index/crear_materias/', methods=['GET', 'POST'])
 def crear_materias():
-    return render_template('crear_materias.html')
+    return render_template('materias_crear.html')
 
 @main.route('/index/editar_materias/', methods=['GET', 'POST'])
 def editar_materias():
-    return render_template('editar_materias.html')
+    return render_template('materias_editar.html')
 
 @main.route('/index/eliminar_materias/', methods=['GET', 'POST'])
 def eliminar_materias():
-    return render_template('eliminar_materias.html')
+    return render_template('materias_eliminar.html')
 
 @main.route('/index/buscar_materias/', methods=['GET', 'POST'])
 def buscar_materias():
-    return render_template('buscar_materias.html')
+    return render_template('materias_buscar.html')
 
 @main.route('/index/actividades/', methods=['GET', 'POST'])
 def actividades():

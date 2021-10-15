@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú lateral responsive - MagtimusPro</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+    
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fas fa-angle-double-left"></i>
+            <h4>NOTUS</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="/index/" >
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+            <a href="/index/usuario/">
+                <div class="option">
+                    <i class="far fa-user" title="Usuario"></i>
+                    <h4>Usuarios</h4>
+                </div>
+            </a>
+            
+            <a href="/index/cursos/" class="selected"> 
+                <div class="option">
+                    <i class="fas fa-book" title="Cursos"></i>
+                    <h4>Cursos</h4>
+                </div>
+            </a>
+
+            <a href="/index/materias/">
+                <div class="option">
+                    <i class="fas fa-book-open" title="Materias"></i>
+                    <h4>Materias</h4>
+                </div>
+            </a>
+
+            <a href="/index/actividades/">
+                <div class="option">
+                    <i class="far fa-file" title="Actividades"></i>
+                    <h4>Actividades</h4>
+                </div>
+            </a>
+
+            <a href="/index/comentarios">
+                <div class="option">
+                    <i class="far fa-comment-alt" title="Comentarios"></i>
+                    <h4>Comentarios</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <main>
+        <h1>Crear Curso</h1><br>
+        <p>Por favor ingrese los campos necesarios para la creación del curso:</p> <br>
+        <p><input type="text" name="ID" size="40" placeholder="ID curso"></p>
+        <p><input type="text" name="nombre" size="40" placeholder="Nombre del curso"></p> <br>
+        <textarea rows="5" cols="40" name="descripción" placeholder="Ingrese la descripción"></textarea> <br>
+        <p> fecha de creación 
+            <div class="input_Container">
+             <input type="date" name="fecha" id="fecha">
+            </div>
+        </p>
+        <p> fecha de modificación 
+            <div class="input_Container">
+             <input type="date" name="fecha" id="fecha">
+            </div>
+        </p><br>
+        <select> Estado
+            <option>Activo</option>
+            <option>Inactivo</option>
+          </select><br>
+        <br>
+        <button type="button" name="Boton" value="cancelar" > Cancelar</button>
+        <button type="button" name="Boton" value="Crear" > Crear</button><br>
+    
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+</body>
+</html>
