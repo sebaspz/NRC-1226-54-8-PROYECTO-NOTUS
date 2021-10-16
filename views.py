@@ -146,27 +146,27 @@ def cursos():
 
 @main.route('/index/cursos/crearCurso/', methods=['GET', 'POST'])
 def crearCurso():
-    return render_template('curso_crear.html')
+    return render_template('cursos_crear.html')
 
 @main.route('/index/cursos/buscarCurso/', methods=['GET', 'POST'])
 def buscarCurso():
-    return render_template('curso_buscar.html')
+    return render_template('cursos_buscar.html')
 
 @main.route('/index/cursos/consultarCurso/', methods=['GET', 'POST'])
 def consultarCurso():
-    return render_template('curso_consultar.html')
+    return render_template('cursos_consultar.html')
 
 @main.route('/index/cursos/editarCurso/', methods=['GET', 'POST'])
 def editarCurso():
-    return render_template('curso_editar.html')
+    return render_template('cursos_editar.html')
 
 @main.route('/index/cursos/eliminarCurso/', methods=['GET', 'POST'])
 def eliminarCurso():
-    return render_template('curso_eliminar.html')
+    return render_template('cursos_eliminar.html')
 
 @main.route('/index/cursos/calificarCurso/', methods=['GET', 'POST'])
 def calificarCurso():
-    return render_template('curso_calificar.html')
+    return render_template('cursos_calificar.html')
 
 @main.route('/index/cursos/consultarCalificaciones/', methods=['GET', 'POST'])
 def consultarCalificaciones():
