@@ -17,7 +17,7 @@ def get_db():
     try:
 
         if 'db' not in g:
-            g.db = sqlite3.connect('NOTUS_project.db')   
+            g.db = sqlite3.connect('NOTUS_project.db')
         return g.db
 
     except Error:

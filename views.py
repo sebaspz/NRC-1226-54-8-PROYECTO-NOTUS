@@ -74,7 +74,7 @@ def login():
 
                 session['nombre'] = user[3]
                 session['usuario'] = user[7]
-                session['role'] = user[9]
+                session['role'] = user[11]
 
                 return redirect(url_for('main.index'))
         flash('Usuario o clave incorrecto.', 'errorLogin') 

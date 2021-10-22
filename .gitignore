@@ -1,5 +1,5 @@
 # Bases de datos
-*.db
+# *.db
 
 # Cachés de dependencias
 /node_modules
