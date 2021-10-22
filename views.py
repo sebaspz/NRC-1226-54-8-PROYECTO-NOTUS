@@ -1,4 +1,9 @@
-from flask import Flask, render_template, blueprints, request, jsonify, redirect, url_for
+import functools
+# from formularios import formularioMensaje
+from flask import Flask, abort, render_template, blueprints, request, jsonify, redirect, url_for,session, flash, send_file
+from werkzeug.security import check_password_hash, generate_password_hash
+from db import get_db
+from markupsafe import escape
 from mensaje import mensajes
 
 
@@ -29,7 +34,7 @@ def home():
 @main.route('/login/', methods=['GET', 'POST'])
 def login():
 
-    if(request.method == 'POST'): 
+    '''if(request.method == 'POST'): 
 
         usuario= request.form['username']
         clave = request.form['userPassword']
@@ -41,13 +46,38 @@ def login():
             if(usuario =='notus' and clave =='notus'):
                 # return redirect(url_for('main.listadoMensajes')) # Aquise programa lo que debe hacer cuando el login sea exitoso
                 return redirect(url_for('main.index'))
-        
-        '''if(Accion == 'Cancelar'):
-            return redirect(url_for('main.home'))
 
-        if(Accion == 'resetPassword'):
-            return redirect(url_for('main.resetPassword'))'''
+    return render_template('login.html') '''
 
+    if request.method =='POST':
+
+        usuario = escape(request.form['username'])
+        clave = escape(request.form['userPassword'])
+
+        db = get_db()
+        #sql = "select * from usuario where usuario = '{0}' and clave= '{1}'".format(usuario, clave)
+
+        user = db.execute('select * from Persona where correo = ? ', (usuario,)).fetchone()
+        db.commit()
+        db.close()
+
+        if user is not None:
+
+            clave = clave + usuario
+
+            print(clave)
+            print(user[8])
+            
+            # sw = check_password_hash(user[8], clave)
+            # if(sw):
+            if(clave == user[8]):
+
+                session['nombre'] = user[3]
+                session['usuario'] = user[7]
+                session['role'] = user[9]
+
+                return redirect(url_for('main.index'))
+        flash('Usuario o clave incorrecto.', 'errorLogin') 
     return render_template('login.html')
 
 @main.route('/signUp/', methods=['GET', 'POST'])

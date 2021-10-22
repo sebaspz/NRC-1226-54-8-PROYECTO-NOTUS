@@ -1,0 +1,95 @@
+CREATE TABLE Persona (
+	idPersona integer NOT NULL,
+	numeroDocumento integer(10) NOT NULL,
+	idTipoDocumento integer(15) NOT NULL,
+	nombres varchar(50)	 NOT NULL,
+	apellidos varchar(50)	 NOT NULL,
+	telefono varchar(20)	 NULL,
+	sexo char(1)	 NULL,
+	correo varchar(50)	 NULL,
+	estadoPersona boolean NULL,
+	fechaNacimiento timestamp NULL,
+	estado varchar(50)	 NULL,
+	CONSTRAINT pk_persona PRIMARY KEY (idPersona)
+);
+
+CREATE TABLE "Asignatura"(
+	"IdAsignatura" integer NOT NULL,
+	"NombreAsignatura" varchar(50)	 NOT NULL,
+	"FechaCreacion" timestamp NULL,
+	"FechaModificacion" timestamp NULL,
+	"Estado" timestamp NULL,
+	CONSTRAINT "PK_Asignatura" PRIMARY KEY ("IdAsignatura")
+);
+
+CREATE TABLE "Curso"(
+	"IdCurso" integer NOT NULL,
+	"IdPersona" integer NOT NULL,
+	"IdAsignatura" integer NOT NULL,
+	"Descripcion" varchar(50)	 NOT NULL,
+	"Calificacion" real NOT NULL,
+	"FechaInicio" timestamp NULL,
+	"FechaFinalizacion" timestamp NULL,
+	"Estado" boolean NULL,
+	CONSTRAINT "PK_Curso" PRIMARY KEY ("IdCurso","IdPersona","IdAsignatura"),
+	CONSTRAINT "FK_Curso_Asignatura" FOREIGN KEY ("IdAsignatura") REFERENCES "Asignatura" ("IdAsignatura"),
+	CONSTRAINT "FK_CursoPersona" FOREIGN KEY ("IdPersona") REFERENCES "Persona" ("idPersona")
+);
+
+CREATE TABLE "Actividad"(
+	"IdActividad" integer NOT NULL,
+	"DescripcionActividad" varchar(50) NOT NULL,
+	"FechaModificacion" timestamp NULL,
+	"FechaCreacion" timestamp NULL,
+	"Duracion" timestamp NULL,
+	"Estado" boolean NULL,
+	CONSTRAINT "PK_Actividades" PRIMARY KEY ("IdActividad")
+);
+
+CREATE TABLE "ActividadXAsignatura"(
+	"IdAsignatura" integer NOT NULL,
+	"IdActividad" integer NOT NULL,
+	CONSTRAINT "PK_ActividadXAsignatura" PRIMARY KEY ("IdAsignatura","IdActividad"),
+	CONSTRAINT "FK_ActividadXAsignatura" FOREIGN KEY ("IdActividad") REFERENCES "Actividad" ("IdActividad"),
+	CONSTRAINT "FK_AsignaturaXActividad" FOREIGN KEY ("IdAsignatura") REFERENCES "Asignatura" ("IdAsignatura")
+);
+
+CREATE TABLE "Comentarios"(
+	"IdComentario" integer NOT NULL,
+	"TextoComentario" varchar(50)	 NOT NULL,
+	"IdCurso" integer NOT NULL,
+	"IdPersona" integer NOT NULL,
+	"IdAsignatura" integer NULL,
+	"IdActividad" integer NOT NULL,
+	CONSTRAINT "PK_Comentarios" PRIMARY KEY ("IdComentario"),
+	CONSTRAINT "FK_Comentarios_ActividadXAsignatura" FOREIGN KEY ("IdAsignatura","IdActividad") REFERENCES "ActividadXAsignatura" ("IdAsignatura","IdActividad"),
+	CONSTRAINT "FK_Comentarios_Curso" FOREIGN KEY ("IdCurso","IdPersona","IdAsignatura") REFERENCES "Curso" ("IdCurso","IdPersona","IdAsignatura")
+);
+
+CREATE TABLE "Perfil"(
+	"idRol" integer NOT NULL,
+	"idPersona" integer NOT NULL,
+	CONSTRAINT "PK_Perfil" PRIMARY KEY ("idRol","idPersona"),
+	CONSTRAINT "FK_RolPerfil" FOREIGN KEY ("idRol") REFERENCES "Rol" ("idRol"),
+	CONSTRAINT "FK_PersonaPerfil" FOREIGN KEY ("idPersona") REFERENCES  "Persona"("idPersona")
+);
+
+CREATE TABLE "Rol"(
+	"idRol" integer NOT NULL,
+	"nombreRol" varchar(50)	 NOT NULL,
+	CONSTRAINT "PK_Rol" PRIMARY KEY ("idRol")
+);
+
+CREATE TABLE "Permiso"(
+	"idPermiso" integer NOT NULL,
+	"descripcion" varchar(50) NOT NULL,
+	CONSTRAINT "PK_Permiso"	PRIMARY KEY ("idPermiso")
+);
+
+CREATE TABLE "PermisoRol"(
+	"idRol" integer NOT NULL,
+	"idPermiso" integer NOT NULL,
+	CONSTRAINT "PK_PermisoRol" PRIMARY KEY ("idRol","idPermiso"),
+	CONSTRAINT "FK_Permiso"	FOREIGN KEY ("idPermiso") REFERENCES "Permiso" ("idPermiso"),
+	CONSTRAINT "FK_Rol" FOREIGN KEY ("idRol") REFERENCES "Rol" ("idRol")
+);
