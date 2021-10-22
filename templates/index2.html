@@ -70,7 +70,7 @@
                 </div>
             </a>
 
-            <a href="/home/">
+            <a href="{{url_for('main.logout')}}">
                 <div class="option">
                     <i class="fas fa-sign-out-alt" title="Cerrar Sesión"></i>
                     <h4>Cerrar Sesión</h4>
@@ -82,7 +82,7 @@
     </div>
 
     <main>
-        <h1>Bienvenido!</h1><br>
+        <h1>Bienvenido, {{ session['nombre'] }}! </h1><br>
         <p>En esta aplicacion encontraras la solucion perfecta para el manejo de tu institucion acadamica. 
             Crea cursos, materias y actividades, diferentes tipos de usuarios, realiza asignaciones entre 
             los entes, califica y comenta el trabajo de los estudiantes y consulta las notas!</p> <br>

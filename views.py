@@ -10,6 +10,15 @@ from mensaje import mensajes
 #creo el objeto que representa la aplicacion 
 main = blueprints.Blueprint('main', __name__) #esto es un constructor - , url_prefix='/home'
 
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if 'usuario' not in session: #puedes hacer otro tipo de validación 
+            return redirect(url_for('main.home'))
+        return view(**kwargs)
+
+    return wrapped_view
+
 # creo las rutas - con cualquiera de estos alias voy a acceder a la pagima principal del sitio 
 
 @main.route('/')    # Aqui aterriza el usuario cuando se dirige a la app, y es redireccionado al home
@@ -80,6 +89,11 @@ def login():
         flash('Usuario o clave incorrecto.', 'errorLogin') 
     return render_template('login.html')
 
+@main.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('main.login'))
+
 @main.route('/signUp/', methods=['GET', 'POST'])
 def signUp():
 
@@ -140,14 +154,17 @@ def testAjax():
     return render_template('testAjax.html')
 
 @main.route('/index/', methods=['GET', 'POST'])
+@login_required
 def index():
     return render_template('index2.html')
 
 @main.route('/index/usuario/', methods=['GET', 'POST'])
+@login_required
 def usuario():
     return render_template('usuario.html')
 
 @main.route('/index/crearUsuario/', methods=['GET', 'POST'])
+@login_required
 def crearUsuario():
     if(request.method == 'POST'):
         
@@ -159,73 +176,91 @@ def crearUsuario():
     return render_template('usuario_crear.html')
 
 @main.route('/index/buscarUsuario/', methods=['GET', 'POST'])
+@login_required
 def buscarUsuario():
     return render_template('usuario_buscar.html')
 
 @main.route('/index/editarUsuario/', methods=['GET', 'POST'])
+@login_required
 def editarUsuario():
     return render_template('usuario_editar.html')
 
 @main.route('/index/eliminarUsuario/', methods=['GET', 'POST'])
+@login_required
 def eliminarUsuario():
     return render_template('usuario_eliminar.html')
 
 @main.route('/index/cursos/', methods=['GET', 'POST'])
+@login_required
 def cursos():
     return render_template('cursos.html')
 
 @main.route('/index/cursos/crearCurso/', methods=['GET', 'POST'])
+@login_required
 def crearCurso():
     return render_template('cursos_crear.html')
 
 @main.route('/index/cursos/buscarCurso/', methods=['GET', 'POST'])
+@login_required
 def buscarCurso():
     return render_template('cursos_buscar.html')
 
 @main.route('/index/cursos/consultarCurso/', methods=['GET', 'POST'])
+@login_required
 def consultarCurso():
     return render_template('cursos_consultar.html')
 
 @main.route('/index/cursos/editarCurso/', methods=['GET', 'POST'])
+@login_required
 def editarCurso():
     return render_template('cursos_editar.html')
 
 @main.route('/index/cursos/eliminarCurso/', methods=['GET', 'POST'])
+@login_required
 def eliminarCurso():
     return render_template('cursos_eliminar.html')
 
 @main.route('/index/cursos/calificarCurso/', methods=['GET', 'POST'])
+@login_required
 def calificarCurso():
     return render_template('cursos_calificar.html')
 
 @main.route('/index/cursos/consultarCalificaciones/', methods=['GET', 'POST'])
+@login_required
 def consultarCalificaciones():
     return render_template('calificaciones_consultar.html')
 
 @main.route('/index/materias/', methods=['GET', 'POST'])
+@login_required
 def materias():
     return render_template('materias.html')
 
 @main.route('/index/crear_materias/', methods=['GET', 'POST'])
+@login_required
 def crear_materias():
     return render_template('materias_crear.html')
 
 @main.route('/index/editar_materias/', methods=['GET', 'POST'])
+@login_required
 def editar_materias():
     return render_template('materias_editar.html')
 
 @main.route('/index/eliminar_materias/', methods=['GET', 'POST'])
+@login_required
 def eliminar_materias():
     return render_template('materias_eliminar.html')
 
 @main.route('/index/buscar_materias/', methods=['GET', 'POST'])
+@login_required
 def buscar_materias():
     return render_template('materias_buscar.html')
 
 @main.route('/index/actividades/', methods=['GET', 'POST'])
+@login_required
 def actividades():
     return render_template('actividades.html')
 
 @main.route('/index/comentarios/', methods=['GET', 'POST'])
+@login_required
 def comentarios():
     return render_template('comentarios.html')
