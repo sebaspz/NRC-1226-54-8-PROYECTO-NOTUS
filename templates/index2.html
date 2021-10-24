@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú lateral responsive - MagtimusPro</title>
+    <title>Bienvenida NOTUS</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 
@@ -15,8 +15,15 @@
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
-            <!-- <h2 >Hola! Usuario</h4> -->
         </div>
+
+        <div id='body1'>
+            <h3>Sesion activa</h3>
+            <p5>{{ session['usuario'] }}</p5><br>
+            <p5>{{ session['role'] }}</p5>
+        </div>
+
+        
     </header>
 
     <div class="menu__side" id="menu_side">
@@ -82,7 +89,7 @@
     </div>
 
     <main>
-        <h1>Bienvenido, {{ session['nombre'] }}! </h1><br>
+        <h1>Bienvenido {{ session['nombre'] }}! </h1><br>
         <p>En esta aplicacion encontraras la solucion perfecta para el manejo de tu institucion acadamica. 
             Crea cursos, materias y actividades, diferentes tipos de usuarios, realiza asignaciones entre 
             los entes, califica y comenta el trabajo de los estudiantes y consulta las notas!</p> <br>
