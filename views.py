@@ -66,7 +66,11 @@ def login():
         db = get_db()
         #sql = "select * from usuario where usuario = '{0}' and clave= '{1}'".format(usuario, clave)
 
-        user = db.execute('select * from Persona where correo = ? ', (usuario,)).fetchone()
+        # numUsers = db.execute('SELECT count(*) FROM Persona').fetchone()
+        # if(numUsers == 0):
+        # print(numUsers)
+
+        user = db.execute('select * from Persona where username = ? ', (usuario,)).fetchone()
         db.commit()
         db.close()
 
@@ -74,16 +78,17 @@ def login():
 
             clave = clave + usuario
 
-            print(clave)
-            print(user[8])
+            # print(clave)
+            # print(user[8])
             
             # sw = check_password_hash(user[8], clave)
             # if(sw):
-            if(clave == user[8]):
+            if(clave == user[9]):
 
                 session['nombre'] = user[3]
-                session['usuario'] = user[7]
-                session['role'] = user[11]
+                session['apellido'] = user[4]
+                session['usuario'] = user[8]
+                session['role'] = user[12]
 
                 return redirect(url_for('main.index'))
         flash('Usuario o clave incorrecto.', 'errorLogin') 
@@ -166,13 +171,38 @@ def usuario():
 @main.route('/index/crearUsuario/', methods=['GET', 'POST'])
 @login_required
 def crearUsuario():
-    if(request.method == 'POST'):
+
+    # Accion = request.form['Boton']
+    # print(Accion)
+    if (request.method == 'POST'): # and request.form['Boton'] == 'Create'):
+
+        nombresUsuario = escape(request.form['nombresUsuario'])
+        apellidosUsuario = escape(request.form['apellidosUsuario'])
+        tipoDocumento = escape(request.form['tipoDocumento'])
+        numeroDocumento = escape(request.form['numeroDocumento'])
+        fechaNAcimiento = escape(request.form['fechaNAcimiento'])
+        sexo = escape(request.form['sexo'])
+        telefonoUsuario = escape(request.form['telefonoUsuario'])
+        mailUsuario = escape(request.form['mailUsuario'])
+        userName = escape(request.form['userName'])
+        userPassword = escape(request.form['userPassword'])
+        roll = escape(request.form['roll'])
+        condiciones = escape(request.form['condiciones'])
+
+        print(userName)
+        print(userPassword)
+
+        db = get_db()
+        #agregar SALT
+        #clave = SALT + clave + usuario
+        userPassword = userPassword + userName
+        # userPassword = generate_password_hash(clave)
+        db.execute("insert into Persona ( numeroDocumento, tipoDocumento, nombres, apellidos, telefono, sexo, correo, username, password, estadoPersona, fechaNacimiento, roll) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",(numeroDocumento, tipoDocumento, nombresUsuario, apellidosUsuario, telefonoUsuario, sexo, mailUsuario, userName, userPassword, 'True', fechaNAcimiento, roll))
+        db.commit()
+        db.close()
+
+        return redirect(url_for('main.usuario'))
         
-        Accion = request.form['Boton']
-
-        if(Accion == 'Create'):
-            return redirect(url_for('main.usuario'))
-
     return render_template('usuario_crear.html')
 
 @main.route('/index/buscarUsuario/', methods=['GET', 'POST'])

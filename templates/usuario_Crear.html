@@ -81,17 +81,17 @@
 
                 <div class="form-group">
                     <label for="exampleInput">Nombres</label>
-                    <input type="example" class="form-control" id="exampleInput" placeholder="Nombres">
+                    <input name="nombresUsuario" type="example" class="form-control" id="exampleInput" placeholder="Nombres">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInput">Apellidos</label>
-                    <input type="example" class="form-control" id="exampleInput" placeholder="Apellidos">
+                    <input name="apellidosUsuario" type="example" class="form-control" id="exampleInput" placeholder="Apellidos">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInput">Tipo de documeto</label>
-                    <select name="select">
+                    <select name="tipoDocumento">
                         <option value="CC" selected>CC</option>
                         <option value="TI">TI</option>
                         <option value="Pasaporte">Pasaporte</option>
@@ -102,7 +102,7 @@
 
                 <div class="form-group">
                     <label for="exampleInput">Numero de documento</label>
-                    <input type="example" class="form-control" id="exampleInput" placeholder="Numero de documento">
+                    <input name="numeroDocumento" class="form-control" id="exampleInput" type="example" placeholder="Numero de documento">
                 </div>
 
                 <div class="input_Container">
@@ -116,21 +116,36 @@
                 </p>
 
                 <div class="form-group">
+                    <label for="exampleInput">Telefono contacto</label>
+                    <input name="telefonoUsuario" class="phone" id="exampleInput" type="example" placeholder="310 9876543">
+                    <span class="error" id="errorMail"></span>
+                </div>
+
+                <div class="form-group">
                     <label for="exampleInput">Correo electronico</label>
-                    <input type="password" class="form-control" id="exampleInput" placeholder="notus@notus.com">
+                    <input name="mailUsuario" class="inputMail" id="exampleInput" type="example" placeholder="tucorreo@dominio.com">
                     <span class="error" id="errorMail"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInput">Usuario</label>
-                    <input type="password" class="form-control" id="exampleInput" placeholder="nombre de usuario">
+                    <input name="userName" class="form-control" id="exampleInput" type="example" placeholder="nombre de usuario">
                     <span class="error" id="errorMail"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="userPassword" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input name="userPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     <span class="error" id="errorPassword"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInput">Rol</label>
+                    <select name="roll">
+                        <option value="SuperAdmin" >SuperAdmin</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="Estudiante" selected>Estudiante</option>
+                    </select>
                 </div>
 
                 <div class="form-check">
@@ -140,9 +155,13 @@
                         protección de datos</label>
                 </div>
                 
-            </fieldset>  
-            <button type="submit" name="Boton" value="Create" id="botonEnviar"> Crear </button>
-            <button type="submit" name="Boton" value="Cancelar" id="botonCancelar"> Cancelar <a href="/index/usuario/"></a></button>
+            </fieldset>
+
+            <button type="submit" name="Boton" value="Create" method="POST"> Crear </button>
+            <button type="submit" name="Boton"  id="boton_Cancelar"> Cancelar <a href="{{ url_for('main.usuario')}}"></a></button>
+
+
+
          </form>
     </main>
 

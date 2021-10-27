@@ -4,7 +4,7 @@ from flask import Flask
 def create_app():
     
     app = Flask(__name__)
-    app.secret_key = os.urandom( 24 )
+    app.secret_key = os.urandom( 24 )   # 'N0tu5'
 
     from views import main
     app.register_blueprint(main)
