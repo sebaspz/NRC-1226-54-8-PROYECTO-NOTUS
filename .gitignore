@@ -1,9 +1,9 @@
 # Bases de datos
 # *.db
-/__pycache__
-/Lib
-/Scripts
-.cfg
+__pycache__
+Lib
+Scripts
+pyvenv.cfg
 
 # Cachés de dependencias
 /node_modules
