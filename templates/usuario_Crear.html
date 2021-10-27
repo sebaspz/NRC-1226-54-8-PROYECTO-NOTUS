@@ -76,7 +76,8 @@
     <main>
         <h1>Crear Usuario</h1><br>
         <p>Diligencie el siguiente formulario</p> <br>
-        <form name="formularioRegistro" onsubmit="return validar();" method="POST" action="{{url_for('main.signUp')}}">
+        <!--onsubmit="return validar();"-->
+        <form name="formularioRegistro" method="POST">
             <fieldset> 
 
                 <div class="form-group">
@@ -158,9 +159,10 @@
             </fieldset>
 
             <button type="submit" name="Boton" value="Create" method="POST"> Crear </button>
-            <button type="submit" name="Boton"  id="boton_Cancelar"> Cancelar <a href="{{ url_for('main.usuario')}}"></a></button>
-
-
+            
+            <a href="{{ url_for('main.usuario')}}">
+                <button type="button" name="Boton" value="regresar" > Cancelar </button>
+            </a>
 
          </form>
     </main>

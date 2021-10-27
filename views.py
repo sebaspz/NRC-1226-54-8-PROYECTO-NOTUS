@@ -77,13 +77,9 @@ def login():
         if user is not None:
 
             clave = clave + usuario
-
-            # print(clave)
-            # print(user[8])
             
-            # sw = check_password_hash(user[8], clave)
-            # if(sw):
-            if(clave == user[9]):
+            sw = check_password_hash(user[9], clave)
+            if(sw):
 
                 session['nombre'] = user[3]
                 session['apellido'] = user[4]
@@ -97,42 +93,7 @@ def login():
 @main.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('main.login'))
-
-@main.route('/signUp/', methods=['GET', 'POST'])
-def signUp():
-
-    if(request.method == 'POST'):
-
-        Accion = request.form['Boton']
-
-        if(Accion == 'newRegister'):      # Boton Enviar pulsado -> redirecciona al formulario de home
-
-            print(request.form['nombre']) 
-            print(request.form['sexo'])
-            print(request.form['condiciones'])
-            print(request.form['username'])
-            print(request.form['userPassword'])
-            print(request.form['correo'])
-
-            return redirect(url_for('main.registerOK')) # Debe redireccional a una pagina de confirmacion y enviar un correo electornico de confirmacion
-
-        if(Accion == 'Cancelar'):
-            return redirect(url_for('main.home'))
-
-    return render_template('signUp.html')
-
-@main.route('/registerOK/', methods=['GET', 'POST'])
-def registerOK():
-
-    if(request.method == 'POST'):
-        
-        Accion = request.form['Boton']
-
-        if(Accion == 'Aceptar'):
-            return redirect(url_for('main.home'))
-
-    return render_template('registerOK.html')
+    return redirect(url_for('main.home'))
 
 @main.route('/resetPassword/', methods=['GET', 'POST'])
 def resetPassword():
@@ -180,7 +141,7 @@ def crearUsuario():
         apellidosUsuario = escape(request.form['apellidosUsuario'])
         tipoDocumento = escape(request.form['tipoDocumento'])
         numeroDocumento = escape(request.form['numeroDocumento'])
-        fechaNAcimiento = escape(request.form['fechaNAcimiento'])
+        fechaNacimiento = escape(request.form['fechaNacimiento'])
         sexo = escape(request.form['sexo'])
         telefonoUsuario = escape(request.form['telefonoUsuario'])
         mailUsuario = escape(request.form['mailUsuario'])
@@ -195,9 +156,9 @@ def crearUsuario():
         db = get_db()
         #agregar SALT
         #clave = SALT + clave + usuario
-        userPassword = userPassword + userName
-        # userPassword = generate_password_hash(clave)
-        db.execute("insert into Persona ( numeroDocumento, tipoDocumento, nombres, apellidos, telefono, sexo, correo, username, password, estadoPersona, fechaNacimiento, roll) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",(numeroDocumento, tipoDocumento, nombresUsuario, apellidosUsuario, telefonoUsuario, sexo, mailUsuario, userName, userPassword, 'True', fechaNAcimiento, roll))
+        userPassword = userPassword + userName 
+        userPassword = generate_password_hash(userPassword)
+        db.execute("INSERT into Persona ( numeroDocumento, tipoDocumento, nombres, apellidos, telefono, sexo, correo, username, password, estadoPersona, fechaNacimiento, roll) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",(numeroDocumento, tipoDocumento, nombresUsuario, apellidosUsuario, telefonoUsuario, sexo, mailUsuario, userName, userPassword, 'True', fechaNacimiento, roll))
         db.commit()
         db.close()
 
