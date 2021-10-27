@@ -3,6 +3,7 @@
 /__pycache__
 /Lib
 /Scripts
+.cfg
 
 # Cachés de dependencias
 /node_modules
