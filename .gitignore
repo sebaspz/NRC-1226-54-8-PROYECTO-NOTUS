@@ -1,5 +1,8 @@
 # Bases de datos
 # *.db
+/__pycache__
+/Lib
+/Scripts
 
 # Cachés de dependencias
 /node_modules
